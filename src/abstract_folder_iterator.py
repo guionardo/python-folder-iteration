@@ -24,7 +24,7 @@ class FolderIterator(Protocol):
         stop_time = time.time()
         folders = set([os.path.dirname(file) for file in files])
         if not no_log:
-            print(f'[{self.name}] Got {len(files)} files in {len(folders)} folders @ {datetime.timedelta(seconds=stop_time-start_time)}')
+            print(f'[{self.name}] Got {len(files)} files in {len(folders)} folders @ {datetime.timedelta(seconds=stop_time-self.start_time)}')
         return files
 
     def _get_files(self, folder: str) -> Generator:
